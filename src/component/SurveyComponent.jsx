@@ -32,7 +32,70 @@ function SurveyComponent() {
                                 "isRequired": true
                             },
                         ]
+                    },
+                    {
+                        "type": "dropdown",
+                        "name": "province_id",
+                        "title": "Nama Provinsi public api",
+                        "isRequired": true,
+                        // "popupDescription": "Pilih provinsi",
+                        // "popupMode": "overlay",
+                        "choicesByUrl": {
+                            "url": "https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json",
+                            "valueName": "id",
+                            "titleName": "name"
+                        }
                     }
+                    , {
+                        "type": "dropdown",
+                        "name": "question1",
+                        "title": "Profesi",
+                        "isRequired": true,
+                        "choices": [
+                            {
+                                "value": "Petani",
+                                "text": "Petani"
+                            },
+                            {
+                                "value": "Pedagang hasil panen",
+                                "text": "Pedagang hasil panen"
+                            },
+                            {
+                                "value": "Konsumen",
+                                "text": "Konsumen"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "dropdown",
+                        "name": "Faktor",
+                        "title": "Faktor yang mempengaruhi produktivitas",
+                        "isRequired": true,
+                        "choices": [
+                            {
+                                "value": "Item 1",
+                                "text": "Kualitas Benih"
+                            },
+                            {
+                                "value": "Item 2",
+                                "text": "Penggunaan Pupuk"
+                            },
+                            {
+                                "value": "Item 3",
+                                "text": "Kondisi Irigasi"
+                            },
+                            {
+                                "value": "Item 4",
+                                "text": "Serangan Hama/Penyakit"
+                            },
+                            {
+                                "value": "Item 5",
+                                "text": "Perubahan Cuaca"
+                            }
+                        ],
+                        "showOtherItem": true,
+                        "otherText": "Lainnya"
+                    },
                 ]
             },
             // {
@@ -167,10 +230,10 @@ function SurveyComponent() {
         ]
     });
     survey.applyTheme(SurveyTheme.DefaultDark);
-    survey.onComplete.add((sender, options) => {
-        console.log(sender.data);
-        // console.log(JSON.stringify(sender.data, null, 3));
-    });
+    // survey.onComplete.add((sender, options) => {
+    //     console.log(sender.data);
+    //     // console.log(JSON.stringify(sender.data, null, 3));
+    // });
     return (<Survey model={survey} />);
 }
 
